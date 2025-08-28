@@ -1,5 +1,5 @@
 let process = require("process");
-let fraction = require('fractional').Fraction
+require("fractional");
 
 const tempRegex =
   /^node\s+converter\.js\s+temp\s+--from\s+([CFK])\s+--to\s+([CFK])\s+(-?\d+(\.\d+)?)$/i;
@@ -79,18 +79,18 @@ const convert = (string) => {
   } else if (string === "node converter.js") {
     console.log(
       "below are hints: \n" +
-      "1) Temperature convertion -> node converter.js temp --from C --to F 30\n" + 
-      "2) scientific notation -> node converter.js to-sci 637.8 \n"+
-      "3) Prefix convertion ->  node converter.js prefix --from MHz --to kHz 1\n" +
-      "4) decimal to fraction -> node converter.js to-fraction 0.444..."
+        "1) Temperature convertion -> node converter.js temp --from C --to F 30\n" +
+        "2) scientific notation -> node converter.js to-sci 637.8 \n" +
+        "3) Prefix convertion ->  node converter.js prefix --from MHz --to kHz 1\n" +
+        "4) decimal to fraction -> node converter.js to-fraction 0.444..."
     );
-  }else {
+  } else {
     console.log(
       "Invalid command,Please enter a valid command...below are hints: \n" +
-      "1) Temperature convertion -> node converter.js temp --from C --to F 30 \n" + 
-      "2) scientific notation -> node converter.js to-sci 637.8 \n"+
-      "3)Prefix convertion ->  node converter.js prefix --from MHz --to kHz 1 \n" +
-      "4) decimal to fraction -> node converter.js to-fraction 0.444..."
+        "1) Temperature convertion -> node converter.js temp --from C --to F 30 \n" +
+        "2) scientific notation -> node converter.js to-sci 637.8 \n" +
+        "3)Prefix convertion ->  node converter.js prefix --from MHz --to kHz 1 \n" +
+        "4) decimal to fraction -> node converter.js to-fraction 0.444..."
     );
   }
 };
@@ -161,9 +161,9 @@ const convertMetricPrefixes = (fromPref, toPref, convertibleValue) => {
 };
 
 const convertDecimalToFraction = (convertibleValue) => {
-  console.log(parseFloat(convertibleValue))
+  console.log(parseFloat(convertibleValue));
   frac = new Fraction(parseFloat(convertibleValue));
-  console.log(frac.toString())
+  console.log(frac.toString());
 };
 
 convert(formatCommand(process.argv));
